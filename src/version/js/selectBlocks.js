@@ -6,14 +6,7 @@ const fragment = document.createDocumentFragment();
 const blocksInDocument = document.querySelector("#blocks");
 
 for (let i = 0; i < mapBlocks[0].length; i++) {
-    let isContinue = false;
-    for (let f = 0; f < map.blocksCategory.cannotUse.length; f++) {
-        if (map.blocksCategory.cannotUse[f] == mapBlocks[1][i]) {
-            isContinue = true;
-            break;
-        }
-    }
-    if (isContinue) continue;
+    if (map.blocksCategory.isReturn(false, "cannotUse", mapBlocks[1][i])) continue;
 
     const img = mapBlocks[0][i];
     img.className = "select-blocks__img";

@@ -108,12 +108,8 @@ const player = {
 
         for (let i = 0; i < Object.keys(map.blocks).length; i++) {
             const block = Object.keys(map.blocks)[i];
-            switch (block) {
-                case "air":
-                case "leaf":
-                case "tntBang":
-                    continue;
-            }
+
+            if (map.blocksCategory.isReturn(false, "notCollision", block)) continue;
 
             //bottom
             if (
@@ -143,7 +139,7 @@ const player = {
             ) {
                 if (block != "ladder") {
                     this.y = this.point.top + 1;
-                    this.gVelocity = 0;
+                    if (this.gVelocity < 0) this.gVelocity = 0;
                     this.point.reset();
 
                     isTop = true;
@@ -178,9 +174,7 @@ const player = {
             }
         }
 
-        if (isBottom && isTop) {
-            this.y--;
-        }
+        if (isBottom && isTop) this.y--;
     },
 
     setBlock(x, y, block) {
@@ -210,13 +204,7 @@ const player = {
                     return;
                 }
 
-                switch (blockOnPush) {
-                    case "air":
-                    case "leaf":
-                        break;
-                    default:
-                        return;
-                }
+                if (map.blocksCategory.isReturn(true, "notCollision", blockOnPush)) return;
 
                 for (let i = 0; i < allPlayers.length; i++) {
                     const thisPl = allPlayers[i];
@@ -260,23 +248,12 @@ const player = {
         if (setY < 0) return;
         if (setY > map.height) return;
 
-        switch (map.map[setX][setY]) {
-            case "barrier":
-            case "bedrock":
-                return;
-        }
+        if (map.blocksCategory.isReturn(false, "cannotBreak", map.map[setX][setY])) return;
         if (map.map[setX][setY] != "air" && block != "air") return;
 
         this.setBlockOnServer(setX, setY, block);
 
-        // if bottom block is the grass we do it on the dirt
-
-        switch (block) {
-            case "air":
-            case "leaf":
-            case "ladder":
-                return;
-        }
+        // якщо нижній блок це трава
 
         if (setY + 1 > map.height) return;
 
@@ -295,15 +272,14 @@ const player = {
                 if ((x - inputX) * (x - inputX) + (y - inputY) * (y - inputY) >= 8) {
                     continue;
                 }
-                switch (map.map[x][y]) {
-                    case "barrier":
-                    case "bedrock":
-                        continue;
-                    case "tnt":
-                        map.map[x][y] = "tntBang";
-                        setTimeout(() => this.tntBang(x, y), 100);
-                        continue;
+
+                if (map.blocksCategory.isReturn(false, "cannotBreakTnt", map.map[x][y])) continue;
+                else if (map.map[x][y] == "tnt") {
+                    map.map[x][y] = "tntBang";
+                    setTimeout(() => this.tntBang(x, y), 100);
+                    continue;
                 }
+
                 map.map[x][y] = "air";
             }
         }
