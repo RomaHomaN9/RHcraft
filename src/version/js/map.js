@@ -34,6 +34,23 @@ const map = {
     blocksCategory: {
         notCollision: ["leaf", "air", "tntBang"],
         cannotUse: ["air", "bedrock", "barrier", "tntBang"],
+        cannotBreak: ["bedrock", "barrier", "tntBang"],
+        cannotBreakTnt: ["bedrock", "barrier"],
+        notDoesOnGrass: ["leaf", "air", "ladder"],
+
+        isReturn(static, obj, block) {
+            let isReturn = false;
+
+            for (let i = 0; i < this[obj].length; i++) {
+                if (this[obj][i] == block) {
+                    isReturn = true;
+                    break;
+                }
+            }
+
+            if (isReturn) return !static;
+            return static;
+        },
     },
 
     set(x, y, block) {

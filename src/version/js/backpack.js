@@ -37,13 +37,9 @@ const backpack = {
         if (this.block < 0) this.block = maxValue;
         if (this.block > maxValue) this.block = 0;
 
-        switch (Object.keys(map.blocks)[this.block]) {
-            case "air":
-            case "barrier":
-            case "bedrock":
-            case "tntBang":
-                this.block += velocity;
-                this.limit(velocity);
+        if (map.blocksCategory.isReturn(false, "cannotUse", Object.keys(map.blocks)[this.block])) {
+            this.block += velocity;
+            this.limit(velocity);
         }
     },
 
