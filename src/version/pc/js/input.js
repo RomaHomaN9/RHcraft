@@ -55,6 +55,10 @@ canvas.addEventListener("contextmenu", (e) => {
     player.setBlock(x, y, Object.keys(map.blocks)[backpack.block]);
 });
 
+document.addEventListener("mousedown", function (e) {
+    if (e.button == 1) showSelectBlockMenu();
+});
+
 document.addEventListener("wheel", (e) => {
     const velocity = e.deltaY > 0 ? 1 : -1;
 
@@ -63,24 +67,4 @@ document.addEventListener("wheel", (e) => {
 
 window.addEventListener("resize", () => {
     resizeCanvas();
-    // menu.resize();
 });
-
-// alert(
-//     `Input:
-// > walk - A/D
-// > slower walk - Shift + A/D
-// > jump - Space
-// > double jump - Space
-// > ladder up - Space
-// > ladder down - S
-// > block set - left mouse button
-// > block clear - right mouse button
-
-// Aim:
-// > center top - top
-// > center bottom - bottom
-// > left - left
-// > right - right
-// `,
-// );

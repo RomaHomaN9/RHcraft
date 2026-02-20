@@ -35,9 +35,7 @@ $shift.addEventListener("touchend", () => {
     player.velocity.shift = false;
 });
 
-$menu.addEventListener("click", () => {
-    menu.set();
-});
+$menu.addEventListener("click", menu.set);
 
 $setBlock.addEventListener("click", showSelectBlockMenu);
 

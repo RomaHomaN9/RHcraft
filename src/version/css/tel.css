@@ -71,30 +71,3 @@
     top: 10px;
     right: 10px;
 }
-
-.select-blocks {
-    width: content;
-
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.select-blocks__obj {
-}
-
-.select-blocks__img {
-    image-rendering: pixelated;
-    width: 70px;
-
-    border-radius: 10%;
-}
-
-.select-blocks__text {
-    text-align: center;
-    text-transform: uppercase;
-}
