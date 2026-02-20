@@ -39,9 +39,7 @@ $menu.addEventListener("click", () => {
     menu.set();
 });
 
-$setBlock.addEventListener("click", () => {
-    backpack.setBlock(1);
-});
+$setBlock.addEventListener("click", showSelectBlockMenu);
 
 canvas.addEventListener("click", (e) => {
     const posCanvas = canvas.getBoundingClientRect();

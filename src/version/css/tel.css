@@ -4,8 +4,12 @@
 
     position: absolute;
 
+    background-color: #ffffffab;
     background-repeat: no-repeat;
     background-size: 100px 100px;
+
+    border: 0;
+    border-radius: 10%;
 }
 
 .move_left {
@@ -29,6 +33,12 @@
     background-image: url(../tel/img/up.png);
 }
 
+.move_left,
+.move_right,
+.move_up {
+    border-radius: 50%;
+}
+
 .setBlock {
     bottom: 150px;
     left: 5px;
@@ -48,6 +58,7 @@
     height: 50px;
 
     font-size: 12.5px;
+    background-color: #fff;
 }
 
 .close_modal {
@@ -59,4 +70,31 @@
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+.select-blocks {
+    width: content;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.select-blocks__obj {
+}
+
+.select-blocks__img {
+    image-rendering: pixelated;
+    width: 70px;
+
+    border-radius: 10%;
+}
+
+.select-blocks__text {
+    text-align: center;
+    text-transform: uppercase;
 }

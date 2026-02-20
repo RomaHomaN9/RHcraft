@@ -31,6 +31,11 @@ const map = {
         tntBang: new Image(),
     },
 
+    blocksCategory: {
+        notCollision: ["leaf", "air", "tntBang"],
+        cannotUse: ["air", "bedrock", "barrier", "tntBang"],
+    },
+
     set(x, y, block) {
         this.map[x][y] = block;
     },
