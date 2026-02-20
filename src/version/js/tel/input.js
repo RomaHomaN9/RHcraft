@@ -38,6 +38,7 @@ $shift.addEventListener("touchend", () => {
 $menu.addEventListener("click", menu.set);
 
 $setBlock.addEventListener("click", showSelectBlockMenu);
+blocksInDocument.addEventListener("click", showSelectBlockMenu);
 
 canvas.addEventListener("click", (e) => {
     const posCanvas = canvas.getBoundingClientRect();

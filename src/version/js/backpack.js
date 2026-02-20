@@ -42,10 +42,4 @@ const backpack = {
             this.limit(velocity);
         }
     },
-
-    setBlock(velocity) {
-        this.block += velocity;
-
-        this.limit(velocity);
-    },
 };

@@ -56,13 +56,9 @@ canvas.addEventListener("contextmenu", (e) => {
 });
 
 document.addEventListener("mousedown", function (e) {
-    if (e.button == 1) showSelectBlockMenu();
-});
-
-document.addEventListener("wheel", (e) => {
-    const velocity = e.deltaY > 0 ? 1 : -1;
-
-    backpack.setBlock(velocity);
+    if (e.button == 1) {
+        showSelectBlockMenu();
+    }
 });
 
 window.addEventListener("resize", () => {

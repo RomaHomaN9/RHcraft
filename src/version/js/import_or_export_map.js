@@ -1,6 +1,4 @@
 const menu = {
-    obj: document.querySelector("#backdrop"),
-
     width: 700,
     height: 540,
 
@@ -8,10 +6,10 @@ const menu = {
 
     set() {
         if (this.isShow) {
-            this.obj.classList.replace("not_hidden", "hidden");
+            document.querySelector("#backdrop").classList.replace("not_hidden", "hidden");
             this.isShow = false;
         } else {
-            this.obj.classList.replace("hidden", "not_hidden");
+            document.querySelector("#backdrop").classList.replace("hidden", "not_hidden");
             this.isShow = true;
         }
     },
