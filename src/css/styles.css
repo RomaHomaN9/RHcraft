@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg {
+    width: 100vw;
+    height: 100vh;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    background-color: #40b5a3;
+    background-image: url("../img/bg.png");
+}
+
+.pc,
+.tel {
+    width: 150px;
+    height: 150px;
+
+    background-color: #0000;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    border: 0;
+
+    position: absolute;
+    top: 50px;
+}
+
+.pc {
+    background-image: url("../img/pc.png");
+    right: 40px;
+}
+
+.tel {
+    background-position: -10px;
+    background-image: url("../img/tel.png");
+    left: 20px;
+}

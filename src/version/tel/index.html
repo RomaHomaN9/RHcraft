@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RHCraft</title>
+        <link rel="stylesheet" href="../css/styles.css" />
+        <link rel="stylesheet" href="../css/tel.css" />
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+
+        <div class="input">
+            <button id="left" class="move_left" type="button"></button>
+            <button id="right" class="move_right" type="button"></button>
+            <button id="up" class="move_up" type="button"></button>
+
+            <button id="setBlock" class="setBlock" type="button"></button>
+
+            <button id="shift" class="shift" type="button"></button>
+
+            <button id="menu" class="on_menu" type="button">Menu</button>
+        </div>
+
+        <div id="backdrop" class="backdrop hidden">
+            <div class="modal">
+                <button onclick="menu.export()" class="export" type="button">Export map</button>
+                <input id="file" type="file" />
+                <button onclick="menu.import()" class="import" type="button">Import map</button>
+
+                <button onclick="menu.set()" class="close_modal" type="button"></button>
+            </div>
+        </div>
+
+        <script src="../js/canvas.js"></script>
+        <script src="../js/camera.js"></script>
+        <script src="../js/map.js"></script>
+        <script src="../js/buildings.js"></script>
+        <script src="../js/player.js"></script>
+        <script src="../js/backpack.js"></script>
+        <script src="../js/gun.js"></script>
+        <script src="../js/aim.js"></script>
+        <script src="../js/game.js"></script>
+        <script src="../js/import_or_export_map.js"></script>
+
+        <script src="./js/input.js"></script>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="../js/multiplayer.js"></script>
+    </body>
+</html>
