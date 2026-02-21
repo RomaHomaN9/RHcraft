@@ -18,14 +18,8 @@ socket.emit("joinRoom", {
 const players = {
     all: {},
 
-    standardRender() {
-        drawImage(
-            player.texture[this.sprite],
-            this.x * block,
-            this.y * block,
-            player.width * block,
-            player.height * block,
-        );
+    standardRender(pl) {
+        drawImage(player.texture[pl.sprite], pl.x * block, pl.y * block, player.width * block, player.height * block);
     },
 
     render() {
@@ -34,12 +28,14 @@ const players = {
         for (let i = 0; i < Object.keys(this.all).length; i++) {
             const thisPlayer = Object.values(this.all)[i];
 
+            if (!thisPlayer) continue;
+
             if (currentSecond - thisPlayer.time > 3) {
-                delete this.all[Object.values(this.all)[i]];
-                return;
+                this.all[Object.keys(this.all)[i]] = null;
+                continue;
             }
 
-            thisPlayer.render();
+            this.standardRender(thisPlayer);
 
             ctx.font = `${block * 0.3}px Consolas, Bold`;
             ctx.fillStyle = "#000000";
@@ -65,8 +61,6 @@ socket.on(`allPlayerOfRoom`, (data) => {
         block: data.block,
 
         time: data.time,
-
-        render: players.standardRender,
     };
 });
 
