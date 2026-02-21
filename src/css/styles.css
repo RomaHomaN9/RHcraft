@@ -41,3 +41,14 @@
     background-image: url("../img/tel.png");
     left: 20px;
 }
+
+.version {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.version__text {
+    color: white;
+    font-size: 30px;
+}
