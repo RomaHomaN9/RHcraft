@@ -7,7 +7,8 @@ const menu = {
     isShow: false,
 
     set() {
-        if (this.isShow) {
+        if (blocksInDocument.classList[1] == "notHidden") blocksInDocument.classList.replace("notHidden", "hidden");
+        else if (this.isShow) {
             this.obj.classList.replace("not_hidden", "hidden");
             this.isShow = false;
         } else {
