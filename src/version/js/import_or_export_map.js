@@ -1,18 +1,18 @@
 const menu = {
-    obj: document.querySelector("#backdrop"),
-
     width: 700,
     height: 540,
 
     isShow: false,
 
     set() {
+        const $obj = document.querySelector("#backdrop");
+
         if (blocksInDocument.classList[1] == "notHidden") blocksInDocument.classList.replace("notHidden", "hidden");
         else if (this.isShow) {
-            this.obj.classList.replace("not_hidden", "hidden");
+            $obj.classList.replace("not_hidden", "hidden");
             this.isShow = false;
         } else {
-            this.obj.classList.replace("hidden", "not_hidden");
+            $obj.classList.replace("hidden", "not_hidden");
             this.isShow = true;
         }
     },
