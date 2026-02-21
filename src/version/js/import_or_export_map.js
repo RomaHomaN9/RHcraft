@@ -5,11 +5,14 @@ const menu = {
     isShow: false,
 
     set() {
-        if (this.isShow) {
-            document.querySelector("#backdrop").classList.replace("not_hidden", "hidden");
+        const $obj = document.querySelector("#backdrop");
+
+        if (blocksInDocument.classList[1] == "notHidden") blocksInDocument.classList.replace("notHidden", "hidden");
+        else if (this.isShow) {
+            $obj.classList.replace("not_hidden", "hidden");
             this.isShow = false;
         } else {
-            document.querySelector("#backdrop").classList.replace("hidden", "not_hidden");
+            $obj.classList.replace("hidden", "not_hidden");
             this.isShow = true;
         }
     },

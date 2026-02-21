@@ -8,6 +8,9 @@ document.addEventListener("keydown", (e) => {
             player.velocity.right = true;
             player.velocity.turn = 1;
             break;
+        case "KeyE":
+            showSelectBlockMenu();
+            break;
         case "Space":
             player.jump(fps.can * fps.coef);
             break;
@@ -55,10 +58,17 @@ canvas.addEventListener("contextmenu", (e) => {
     player.setBlock(x, y, Object.keys(map.blocks)[backpack.block]);
 });
 
+<<<<<<< HEAD
 document.addEventListener("mousedown", function (e) {
     if (e.button == 1) {
         showSelectBlockMenu();
     }
+=======
+document.addEventListener("wheel", (e) => {
+    const velocity = e.deltaY > 0 ? 1 : -1;
+
+    backpack.setBlock(velocity);
+>>>>>>> dev
 });
 
 window.addEventListener("resize", () => {

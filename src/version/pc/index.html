@@ -12,13 +12,16 @@
         <div id="backdrop" class="backdrop hidden">
             <div class="modal">
                 <button onclick="menu.export()" class="export" type="button">Export map</button>
-                <input id="file" type="file" />
-                <button onclick="menu.import()" class="import" type="button">Import map</button>
+                <div class="import">
+                    <label for="file" class="import-input">Select file</label>
+                    <input id="file" class="hidden" type="file" accept=".json" />
+                    <button onclick="menu.import()" class="import-button" type="button">Import map</button>
+                </div>
             </div>
         </div>
 
         <div id="blocks" class="backdrop hidden">
-            <div class="modal">
+            <div class="modal scrollY">
                 <div id="select-blocks" class="select-blocks"></div>
             </div>
         </div>
