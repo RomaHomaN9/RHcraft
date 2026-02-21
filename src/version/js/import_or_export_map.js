@@ -7,7 +7,7 @@ const menu = {
     set() {
         const $obj = document.querySelector("#backdrop");
 
-        if (blocksInDocument.classList[1] == "notHidden") blocksInDocument.classList.replace("notHidden", "hidden");
+        if (blocksInDocument.classList[1] == "not_hidden") blocksInDocument.classList.replace("not_hidden", "hidden");
         else if (this.isShow) {
             $obj.classList.replace("not_hidden", "hidden");
             this.isShow = false;
