@@ -25,12 +25,7 @@ for (let i = 0; i < mapBlocks[0].length; i++) {
 container.appendChild(fragment);
 
 const showSelectBlockMenu = () => {
-<<<<<<< HEAD
     if (blocksInDocument.classList[1] == "hidden") blocksInDocument.classList.replace("hidden", "not_hidden");
     else blocksInDocument.classList.replace("not_hidden", "hidden");
-=======
-    if (blocksInDocument.classList[1] == "hidden") blocksInDocument.classList.replace("hidden", "notHidden");
-    else blocksInDocument.classList.replace("notHidden", "hidden");
->>>>>>> dev
     console.log(1);
 };
