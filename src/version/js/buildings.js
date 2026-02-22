@@ -1,41 +1,62 @@
-setTimeout(() => {
-    const posX = Math.floor(map.width / 2);
+const house = {
+    obj: [],
 
-    //підлога
-    for (let x = posX - 5; x < posX + 6; x++) {
-        map.map[x][33] = "cobblestone";
-    }
-
-    //стіни
-    for (let y = 27; y < 33; y++) {
-        map.map[posX - 4][y] = "tree";
-        map.map[posX + 4][y] = "tree";
-    }
-    console.log(posX);
-    map.map[posX - 4][32] = "air";
-
-    //драбина
-    for (let y = 28; y < 33; y++) {
-        map.map[posX + 3][y] = "ladder";
-    }
-
-    //стеля 1
-    for (let x = posX - 3; x < posX + 3; x++) {
-        map.map[x][28] = "cobblestone";
-    }
-    map.map[posX - 3][26] = "cobblestone";
-    map.map[posX - 3][27] = "cobblestone";
-
-    //стеля 2
-    for (let y = 22; y < 25; y++) {
-        for (let x = 22 - y; x <= y - 22; x++) {
-            map.map[posX + x][y + 1] = "cobblestone";
+    create() {
+        for (let x = 0; x < 11; x++) {
+            this.obj.push([]);
+            for (let y = 0; y < 12; y++) {
+                this.obj[x].push("air");
+            }
         }
-    }
+        this.generate();
+    },
 
-    //дах
-    for (let y = 22; y < 28; y++) {
-        map.map[posX + 22 - y][y] = "board";
-        map.map[posX + y - 22][y] = "board";
-    }
-}, 0);
+    generate() {
+        //floor
+        for (let x = 0; x < 11; x++) {
+            this.obj[x][11] = "cobblestone";
+        }
+
+        //стіни
+        for (let y = 5; y < 11; y++) {
+            this.obj[1][y] = "tree";
+            this.obj[9][y] = "tree";
+        }
+        this.obj[1][10] = "air";
+
+        //драбина
+        for (let y = 6; y < 11; y++) {
+            this.obj[8][y] = "ladder";
+        }
+
+        //потолок 1
+        for (let x = 2; x < 8; x++) {
+            this.obj[x][6] = "cobblestone";
+        }
+        this.obj[2][4] = "cobblestone";
+        this.obj[2][5] = "cobblestone";
+
+        //потолок 2
+        for (let y = 0; y < 3; y++) {
+            for (let x = 5 - y; x <= 5 + y; x++) {
+                this.obj[x][y + 1] = "cobblestone";
+            }
+        }
+
+        //дах
+        for (let y = 0; y < 6; y++) {
+            this.obj[5 - y][y] = "board";
+            this.obj[5 + y][y] = "board";
+        }
+    },
+
+    set(posX, posY) {
+        for (let x = 0; x < 11; x++) {
+            for (let y = 0; y < 12; y++) {
+                map.map[posX + x][posY + y] = this.obj[x][y];
+            }
+        }
+    },
+};
+house.create();
+house.set(Math.floor(map.width / 2) - 5, 22);
