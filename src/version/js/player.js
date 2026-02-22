@@ -14,7 +14,7 @@ const player = {
     sprite: "idleLeft",
 
     speed: 800,
-    shift: 750,
+    shift: 500,
     jumpSpeed: -750,
 
     velocity: {
