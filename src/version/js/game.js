@@ -32,9 +32,6 @@ const game = () => {
 
     gameStep++;
 
-    // fps.set();
-    // console.log(fps.can);
-
     requestAnimationFrame(game);
 };
 

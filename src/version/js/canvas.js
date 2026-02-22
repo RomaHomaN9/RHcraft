@@ -45,24 +45,13 @@ const drawImage = (img, x, y, width, height) => {
     if (y + height + camera.y < 0) return;
     if (posY > CH) return;
 
-    // ctx.fillRect(posX, posY, width, height);
     ctx.drawImage(img, posX, posY, width, height);
 };
 
 const fps = {
     can: 20, //in ms
 
-    // old: 0,
-    // new: new Date().getTime(),
-
     coef: 0.00001,
-
-    // set() {
-    // const time = new Date().getTime();
-    // this.old = this.new;
-    // this.new = time;
-    // this.can = this.new - this.old;
-    // },
 };
 
 const gravitySpeed = 40;
