@@ -31,5 +31,4 @@ const showSelectBlockMenu = () => {
     if (blocksInDocument.classList[1] == "hidden" && document.querySelector("#backdrop").classList[1] == "hidden")
         blocksInDocument.classList.replace("hidden", "not_hidden");
     else blocksInDocument.classList.replace("not_hidden", "hidden");
-    console.log(blocksInDocument.classList);
 };
