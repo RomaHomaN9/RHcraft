@@ -269,7 +269,7 @@ const player = {
     tntBang(inputX, inputY) {
         for (let x = inputX - 2; x <= inputX + 2; x++) {
             for (let y = inputY - 2; y <= inputY + 2; y++) {
-                if ((x - inputX) * (x - inputX) + (y - inputY) * (y - inputY) <= 8) {
+                if ((x - inputX) * (x - inputX) + (y - inputY) * (y - inputY) >= 8) {
                     continue;
                 }
 
